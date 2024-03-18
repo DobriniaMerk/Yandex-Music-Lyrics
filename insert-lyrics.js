@@ -1,6 +1,6 @@
 const path = "https://music.yandex.ru/translate/track/"
 
-var observer = (function(){
+var observer = (function(){  // i have no idea how his works
   var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
   return function( obj, callback ){
@@ -30,7 +30,7 @@ function getLyrics(url) {
          xmlhttp.open("GET", url, false);
     xmlhttp.send();
 
-    if(xmlhttp == false)
+    if(xmlhttp == false)  // do i need this?
     {
         return "404";
     }
@@ -38,7 +38,7 @@ function getLyrics(url) {
     var raw = xmlhttp.responseText;
 
     try {
-        return raw.split('<pre>')[1].split('</pre>')[0];
+        return raw.split('<pre>')[1].split('</pre>')[0];  // hardcoded, but unlikely to break
     }
     catch (e){
         return "Lyrics not found ):";
@@ -54,19 +54,17 @@ observer(document.querySelector(".sidebar"), function(m){
    
     m.forEach(record => record.removedNodes.length & removedNodes.push(...record.removedNodes))
 
-    if (removedNodes.length > 0)
+    if (addedNodes.length > 1 || removedNodes.length > 0)  // hardcode magik, can be broken by site update
     {
-        const sidebar = document.querySelector(".sidebar-track");
-        const track = sidebar.querySelector(".d-link").href.split('/')[6];
+        const sidebar = document.querySelector(".sidebar-track");               // can be broken by site update
+        const track = sidebar.querySelector(".d-link").href.split('/')[6];      // can be broken by site update
         var lyrics = getLyrics(path + track);
 
         var text = document.createElement("pre");
-        text.innerHTML = lyrics;
+        text.innerHTML = "\n" + lyrics + "n";
         text.id = "loaded-lyrics";
 
         sidebar.insertBefore(text, sidebar.children[1]);
     }
-    // console.clear();
-    //console.log('Added:', addedNodes, 'Removed:', removedNodes);
 });
 
