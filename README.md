@@ -1,5 +1,5 @@
-Some years ago Yandex.Music had a dedicated section in the sidebar, where you could read a lyrics of selected song. It was not very full, and that is probably why it was removed.
+Some years ago Yandex.Music had a dedicated section in the sidebar, where you could read the lyrics of selected song. It was not very full, and that is probably why it was removed.
 
-When searching for music i accidentally found a page where this lyrics was still present, so i made an extension that extracts the text from there and puts it where it was previously. Of course, since this database is no longer in use it is no longer updated, so newer or less popular songs don't have lyrics.
+I have created an add-on that restores this feature to its original location after discovering, by chance, that the lyrics were still available on an inaccessible part of the website.  Naturally, lyrics are not available for songs that are more recent or less well-known because this database is no longer updated and used.
 
-I actually do not know JS at all, so code, let's say, not the best.
+I don't know JS at all, so the code is, shall we say, not the best.
